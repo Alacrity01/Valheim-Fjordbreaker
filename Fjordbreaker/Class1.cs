@@ -31,6 +31,22 @@ public class FjordbreakerMod : BaseUnityPlugin
         var krom = db.m_items.Find(i => i.name == "THSwordKrom");
         var mistwalker = db.m_items.Find(i => i.name == "SwordMistwalker");
 
+        foreach (var recipe in db.m_recipes)
+        {
+            if (recipe?.m_item != null)
+                Log.LogInfo($"Recipe item: {recipe.m_item.name}");
+        }
+        var kromRecipe = db.m_recipes.Find(r => r?.m_item != null && r.m_item.name == "THSwordKrom");
+
+        if (kromRecipe != null)
+        {
+            Log.LogInfo($"Krom recipe crafting station: {kromRecipe.m_craftingStation?.name ?? "None"}");
+            kromRecipe.m_enabled = true;
+        }
+        else
+        {
+            Log.LogWarning("Krom recipe not found.");
+        }
 
         if (krom && mistwalker)
         {
