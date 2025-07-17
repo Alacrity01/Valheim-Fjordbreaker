@@ -40,8 +40,10 @@ public class FjordbreakerMod : BaseUnityPlugin
             kromData.m_shared.m_name = "Fjordbreaker";
             kromData.m_shared.m_damages.m_frost = mistData.m_shared.m_damages.m_frost;
             kromData.m_shared.m_attackStatusEffect = mistData.m_shared.m_attackStatusEffect;
+            kromData.m_shared.m_damages.m_chop = kromData.m_shared.m_damages.m_slash;
+            kromData.m_shared.m_toolTier = 3;
 
-            Log.LogInfo("Krom modified to Fjordbreaker with frost/chill.");
+            Log.LogInfo("Krom modified to Fjordbreaker with frost/chill and woodcutting ability.");
         }
         else
         {
